@@ -72,7 +72,7 @@ find -name '*.class' -delete
 
 # Require an unpachaged version
 #pom_remove_dep :jmock
-ser -i -e "s|<groupId>jmock</groupId>|<groupId>org.jmock</groupId>|" pom.xml
+set -i -e "s|<groupId>jmock</groupId>|<groupId>org.jmock</groupId>|g" pom.xml
 
 %mvn_alias :%{name} spy:spymemcached spy:memcached
 
