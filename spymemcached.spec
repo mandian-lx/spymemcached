@@ -14,7 +14,7 @@ BuildArch:	noarch
 BuildRequires:	maven-local
 BuildRequires:	mvn(com.codahale.metrics:metrics-core)
 BuildRequires:	mvn(junit:junit)
-BuildRequires:	mvn(log4j:log4j:1.2.17)
+BuildRequires:	mvn(log4j:log4j)
 BuildRequires:	mvn(org.jmock:jmock)
 BuildRequires:	mvn(org.slf4j:slf4j-api)
 BuildRequires:	mvn(org.springframework:spring-beans)
