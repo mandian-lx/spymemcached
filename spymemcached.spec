@@ -1,4 +1,4 @@
-%{?_javapackages_macros:%_javapackages_macros
+%{?_javapackages_macros:%_javapackages_macros}
 
 Summary:	Java client for memcached
 Name:		spymemcached
