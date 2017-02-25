@@ -70,12 +70,9 @@ find -name '*.class' -delete
 %pom_xpath_replace "pom:project/pom:version" "
 	<version>%{version}</version>"
 
-# fix log4j version
-%pom_change_dep log4j:log4j log4j:log4j:1.2.17
-
 # Require an unpachaged version
 #pom_remove_dep :jmock
-%pom_change_dep jmock org.jmock
+ser -i -e "s|<groupId>jmock</groupId>|<groupId>org.jmock</groupId>|" pom.xml
 
 %mvn_alias :%{name} spy:spymemcached spy:memcached
 
