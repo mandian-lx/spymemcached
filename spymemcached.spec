@@ -1,23 +1,23 @@
-Summary:    Java client for memcached
-Name:       spymemcached
-Version:    2.11.4
-Release:    0
-# ASL src/scripts/write-version-info.sh
-License:    ASL 2.0 and MIT
-Group:      Development/Java
-Url:        https://github.com/dustin/java-memcached-client
-Source0:    https://github.com/dustin/java-memcached-client/archive/%{version}/%{name}-%{version}.tar.gz
-BuildArch:  noarch
-BuildRequires: maven-local
-BuildRequires: metrics #mvn(com.codahale.metrics:metrics-core)
-BuildRequires: mvn(log4j:log4j:1.2.17)
-BuildRequires: mvn(org.slf4j:slf4j-api)
-BuildRequires: mvn(org.springframework:spring-beans)
-# test deps
-BuildRequires: mvn(org.jmock:jmock) >= 1.2.0
-BuildRequires: mvn(junit:junit)
+%{?_javapackages_macros:%_javapackages_macros
 
-Requires:      mvn(log4j:log4j:1.2.17)
+Summary:	Java client for memcached
+Name:		spymemcached
+Version:	2.11.4
+Release:	1
+# ASL src/scripts/write-version-info.sh
+License:	ASL 2.0 and MIT
+Group:		Development/Java
+Url:		https://github.com/dustin/java-memcached-client
+Source0:	https://github.com/dustin/java-memcached-client/archive/%{version}/%{name}-%{version}.tar.gz
+BuildArch:	noarch
+
+BuildRequires:	maven-local
+BuildRequires:	mvn(com.codahale.metrics:metrics-core)
+BuildRequires:	mvn(junit:junit)
+BuildRequires:	mvn(log4j:log4j:1.2.17)
+BuildRequires:	mvn(org.jmock:jmock)
+BuildRequires:	mvn(org.slf4j:slf4j-api)
+BuildRequires:	mvn(org.springframework:spring-beans)
 
 %description
 A simple, asynchronous, single-threaded memcached client written in java.
@@ -50,8 +50,8 @@ A simple, asynchronous, single-threaded memcached client written in java.
 
 #----------------------------------------------------------------------------
 
-%package  javadoc
-Summary:  Javadoc for %{name}
+%package javadoc
+Summary:	Javadoc for %{name}
 
 %description javadoc
 API documentation for %{name}.
@@ -68,7 +68,7 @@ find -name '*.class' -delete
 
 # fix versions
 %pom_xpath_replace "pom:project/pom:version" "
-  <version>%{version}</version>"
+	<version>%{version}</version>"
 
 # fix log4j version
 %pom_change_dep log4j:log4j log4j:log4j:1.2.17
