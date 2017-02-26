@@ -74,7 +74,7 @@ find -name '*.class' -delete
 #pom_remove_dep :jmock
 set -i -e "s|<groupId>jmock</groupId>|<groupId>org.jmock</groupId>|g" pom.xml
 
-%mvn_alias :%{name} spy:spymemcached spy:memcached
+%mvn_alias :%{name} spy:spymemcached spy:memcached net.spy:spymemcached:%{version}
 
 %mvn_file :%{name} %{name}-%{version} %{name}
 
